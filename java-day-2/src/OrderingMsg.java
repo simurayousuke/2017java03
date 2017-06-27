@@ -2,18 +2,31 @@ import java.util.ArrayList;
 import java.util.Scanner;
 
 public class OrderingMsg {
-	
-	private static boolean hasOrder(ArrayList<Order> orders){
-		if(orders.isEmpty()){
+
+	private static void printMenu() {
+		// 显示菜单
+		System.out.println("****************************");
+		System.out.println("1、我要订餐");
+		System.out.println("2、查看餐袋");
+		System.out.println("3、签收订单");
+		System.out.println("4、删除订单");
+		System.out.println("5、我要点赞");
+		System.out.println("6、退出系统");
+		System.out.println("****************************");
+		System.out.print("请选择：");
+	}
+
+	private static boolean hasOrder(ArrayList<Order> orders) {
+		if (orders.isEmpty()) {
 			System.out.println("无订单！");
 			System.out.println("输入0返回上层");
 			return false;
 		}
 		return true;
 	}
-	
-	private static boolean hasDish(ArrayList<Dish> dishes){
-		if(dishes.isEmpty()){
+
+	private static boolean hasDish(ArrayList<Dish> dishes) {
+		if (dishes.isEmpty()) {
 			System.out.println("无菜品！");
 			System.out.println("输入0返回上层");
 			return false;
@@ -66,7 +79,7 @@ public class OrderingMsg {
 	}
 
 	private static void handleCase2(ArrayList<Order> orders, Scanner input) {
-		if(!hasOrder(orders)){
+		if (!hasOrder(orders)) {
 			input.next();
 			return;
 		}
@@ -79,7 +92,7 @@ public class OrderingMsg {
 	}
 
 	private static void handleCase3(ArrayList<Order> orders, Scanner input) {
-		if(!hasOrder(orders)){
+		if (!hasOrder(orders)) {
 			input.next();
 			return;
 		}
@@ -89,7 +102,7 @@ public class OrderingMsg {
 			choice = input.nextInt();
 			if (choice > 0 && choice < orders.size() + 1) {
 				orders.get(choice - 1).setFinish(true);
-				choice=0;
+				choice = 0;
 				System.out.println("签收成功");
 			}
 		} while (choice != 0);
@@ -98,7 +111,7 @@ public class OrderingMsg {
 	}
 
 	private static void handleCase4(ArrayList<Order> orders, Scanner input) {
-		if(!hasOrder(orders)){
+		if (!hasOrder(orders)) {
 			input.next();
 			return;
 		}
@@ -108,7 +121,7 @@ public class OrderingMsg {
 			choice = input.nextInt();
 			if (choice > 0 && choice < orders.size() + 1) {
 				orders.remove(choice - 1);
-				choice=0;
+				choice = 0;
 				System.out.println("删除成功");
 			}
 		} while (choice != 0);
@@ -117,16 +130,16 @@ public class OrderingMsg {
 	}
 
 	private static void handleCase5(ArrayList<Dish> dishes, Scanner input) {
-		if(!hasDish(dishes)){
+		if (!hasDish(dishes)) {
 			input.next();
 			return;
 		}
-		int selected=-1;
+		int selected = -1;
 		do {
 			System.out.println("序号\t菜名\t单价\t点赞数");
 			for (int i = 0; i < dishes.size(); ++i) {
 				Dish d = dishes.get(i);
-				System.out.printf("%d\t%s\t%.1f元\t%d赞\n", i + 1, d.getName(), d.getValue(),d.getNum());
+				System.out.printf("%d\t%s\t%.1f元\t%d赞\n", i + 1, d.getName(), d.getValue(), d.getNum());
 			}
 			System.out.print("请选择序号：");
 			selected = input.nextInt();
@@ -138,7 +151,7 @@ public class OrderingMsg {
 				break;
 			}
 			Dish d = dishes.get(selected - 1);
-			d.setNum(d.getNum()+1);
+			d.setNum(d.getNum() + 1);
 			System.out.println("点赞成功！");
 
 		} while (selected != 0);
@@ -163,16 +176,7 @@ public class OrderingMsg {
 		int choice;
 		boolean isExit = false;
 		while (!isExit) {
-			// 显示菜单
-			System.out.println("****************************");
-			System.out.println("1、我要订餐");
-			System.out.println("2、查看餐袋");
-			System.out.println("3、签收订单");
-			System.out.println("4、删除订单");
-			System.out.println("5、我要点赞");
-			System.out.println("6、退出系统");
-			System.out.println("****************************");
-			System.out.print("请选择：");
+			printMenu();
 			choice = input.nextInt();
 			switch (choice) {
 			case 1:
@@ -182,13 +186,13 @@ public class OrderingMsg {
 				handleCase2(orders, input);
 				break;
 			case 3:
-				handleCase3(orders,input);
+				handleCase3(orders, input);
 				break;
 			case 4:
-				handleCase4(orders,input);
+				handleCase4(orders, input);
 				break;
 			case 5:
-				handleCase5(dishes,input);
+				handleCase5(dishes, input);
 				break;
 			default:
 				System.out.println("再见");
@@ -197,6 +201,5 @@ public class OrderingMsg {
 			}
 		}
 		input.close();
-
 	}
 }
