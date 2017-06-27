@@ -3,6 +3,18 @@ import java.util.Scanner;
 
 public class OrderingMsg {
 
+	private static void init(ArrayList<Order> orders, ArrayList<Dish> dishes) {
+		// 初始化2个订单信息
+		orders.add(new Order("张晴", "红烧带鱼", 2, 12, "No207", true, 76.0));
+		orders.add(new Order("张晴", "鱼香肉丝", 2, 18, "No207", false, 20.0));
+
+		// 供选择的菜品信息
+		dishes.add(new Dish("红烧带鱼", 38.0, 0));
+		dishes.add(new Dish("鱼香肉丝", 20.0, 0));
+		dishes.add(new Dish("时令鲜蔬", 10.0, 0));
+		dishes.add(new Dish("杨森", 0.0, 0));
+	}
+
 	private static void printMenu() {
 		// 显示菜单
 		System.out.println("****************************");
@@ -162,15 +174,7 @@ public class OrderingMsg {
 		ArrayList<Order> orders = new ArrayList<Order>();
 		ArrayList<Dish> dishes = new ArrayList<Dish>();
 
-		// 初始化2个订单信息
-		orders.add(new Order("张晴", "红烧带鱼", 2, 12, "No207", true, 76.0));
-		orders.add(new Order("张晴", "鱼香肉丝", 2, 18, "No207", false, 20.0));
-
-		// 供选择的菜品信息
-		dishes.add(new Dish("红烧带鱼", 38.0, 0));
-		dishes.add(new Dish("鱼香肉丝", 20.0, 0));
-		dishes.add(new Dish("时令鲜蔬", 10.0, 0));
-		dishes.add(new Dish("杨森", 0.0, 0));
+		init(orders, dishes);
 
 		Scanner input = new Scanner(System.in);
 		int choice;
