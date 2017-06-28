@@ -4,9 +4,7 @@
 
 ## 作者
 
-*杨志庄*  
-
-欢迎使用[庄云网](https://zhuangcloud.cn/)
+*杨志庄*  (欢迎使用[庄云网](https://zhuangcloud.cn/))
 
 ## 命名规则
 
