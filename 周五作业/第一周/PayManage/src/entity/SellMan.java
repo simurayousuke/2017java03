@@ -10,10 +10,13 @@ public class SellMan extends Employee{
 	public SellMan(String employeeId,String employeeName){
 		super(employeeId, employeeName);
 	}
-	public SellMan(String employeeId,String employeeName,float basicPay,float sale){
-	//todo  初始化数据
+
+	public SellMan(String employeeId, String employeeName, float basicPay, float sale) {
+		// finish 初始化数据
+		super(employeeId, employeeName, basicPay);
+		this.sale = sale;
 	}
-	
+
 	public float getSale() {
 		return sale;
 	}
@@ -39,7 +42,7 @@ public class SellMan extends Employee{
 			System.out.println("输入格式不正确！");
 			return 0;
 		}
-		
-		return 0.0f;// todo 计算工资：销售人员工资=基本工资+销售额*0.15
+		float salary=(float)(basicPay+sale*0.15);
+		return salary;// finish 计算工资：销售人员工资=基本工资+销售额*0.15
 	}
 }

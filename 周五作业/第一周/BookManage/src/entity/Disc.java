@@ -10,9 +10,12 @@ public class Disc extends Resource {
 	private String type;//介质类型（CD或磁带）
 	
 	public Disc(){}
-	
-	public Disc(String indexId,String resourceName,String publishTime,boolean state,String singMan,String type){
-		//todo  初始化数据
+
+	public Disc(String indexId, String resourceName, String publishTime, boolean state, String singMan, String type) {
+		// finish  初始化数据
+		super(indexId, resourceName, publishTime, state);
+		this.singMan = singMan;
+		this.type = type;
 	}
 
 	public String getSingMan() {
@@ -51,7 +54,8 @@ public class Disc extends Resource {
 	 * 重写登记资源信息
 	 */
 	public void enrol() {
-		//todo调用父类的登记方法
+		// finish 调用父类的登记方法
+		super.enrol();
 		Scanner input=new Scanner(System.in);
 		System.out.print("请输入演唱人：");
 		String singMan=input.next();

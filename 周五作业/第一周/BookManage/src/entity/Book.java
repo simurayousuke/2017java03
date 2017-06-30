@@ -10,12 +10,14 @@ public class Book extends Resource {
 	public Book(){
 		
 	}
-	
-	public Book(String indexId,String resourceName,String publishTime,boolean state,String author,int pageCount){
-		//todo  初始化信息
+
+	public Book(String indexId, String resourceName, String publishTime, boolean state, String author, int pageCount) {
+		// finish  初始化信息
+		super(indexId, resourceName, publishTime, state);
+		this.author = author;
+		this.pageCount = pageCount;
 	}
 
-	
 	public String getAuthor() {
 		return author;
 	}
@@ -51,7 +53,8 @@ public class Book extends Resource {
 	 * 重写登记资源信息
 	 */
 	public void enrol() {
-		//todo调用父类的登记方法
+		// finish 调用父类的登记方法
+		super.enrol();
 		Scanner input=new Scanner(System.in);
 		System.out.print("请输入作者：");
 		String author=input.next();

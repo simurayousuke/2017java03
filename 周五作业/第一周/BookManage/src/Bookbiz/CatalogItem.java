@@ -13,9 +13,10 @@ public class CatalogItem {
 	 * @param resourceType 资源类型
 	 * @return 资源
 	 */
-	public Resource noteResource(String resourceType){
-		Resource resource=null;
-		//todo 判断类型
+	public static Resource noteResource(String resourceType) throws IllegalAccessException, InstantiationException, ClassNotFoundException {
+		Class<?> clazz=Class.forName("entity."+resourceType);
+		Resource resource=(Resource)clazz.newInstance();
+		// finish 判断类型
 		return resource;
 	}
 }

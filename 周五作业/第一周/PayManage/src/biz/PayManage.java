@@ -15,17 +15,17 @@ public class PayManage {
 	 * @param type 员工类型
 	 * @return 员工对象
 	 */
-	public Employee getEmployee(String type){
-		Employee emp=null;
+	public static Employee getEmployee(String type) throws ClassNotFoundException, IllegalAccessException, InstantiationException {
+		Class<?> clazz=Class.forName("entity."+type);
+		Employee emp=(Employee)clazz.newInstance();
 		Scanner input=new Scanner(System.in);
 		System.out.print("请输入员工号：");
-		String employeeId=input.next();
+		emp.setEmployeeId(input.next());
 		System.out.print("请输入员姓名：");
-		String employeeName=input.next();
+		emp.setEmployeeName(input.next());
 		/*
-		 * todo 根据类型的判断实例化各类型的对象
+		 * finish 根据类型的判断实例化各类型的对象
 		 */
-		
 		return emp;
 	}
 }

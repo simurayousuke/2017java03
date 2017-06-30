@@ -6,7 +6,7 @@ import entity.Resource;
  * 图书资源管理系统类
  */
 public class Test {
-	public static void main(String[] args) {
+	public static void main(String[] args) throws IllegalAccessException, ClassNotFoundException, InstantiationException {
 		Scanner input=new Scanner(System.in);
 		CatalogItem catalog=new CatalogItem();//创建资源目录的对象
 		System.out.println(">>您目前的位置:资源目录记录");
@@ -14,14 +14,16 @@ public class Test {
 		int choose=input.nextInt();
 		String resourceType="";
 		if(choose==1){//判断客户选择资源类型
-			resourceType="图书";
+			resourceType="Book";
 		}else if(choose==2){
-			resourceType="唱片";
+			resourceType="Disc";
 		}	
 		
-		//todo 调用记录资源的方法
-		//todo调用资源的详细信息	
-		
+		// finish 调用记录资源的方法
+		Resource res=CatalogItem.noteResource(resourceType);
+		res.enrol();
+		// finish 调用资源的详细信息
+		res.printInfo();
 		
 		System.out.println("资源已记录成功！");	
 	}

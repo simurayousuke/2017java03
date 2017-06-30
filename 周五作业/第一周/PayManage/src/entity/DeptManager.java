@@ -11,10 +11,14 @@ public class DeptManager extends Employee {
 	public DeptManager(String employeeId,String employeeName){
 		super(employeeId, employeeName);
 	}
-    public DeptManager(String employeeId,String employeeName,float basicPay,float bonus){
-    	//todo  初始化数据
-    }  
-    public float getBonus() {
+
+	public DeptManager(String employeeId, String employeeName, float basicPay, float bonus) {
+        //finish  初始化数据
+		super(employeeId, employeeName, basicPay);
+		this.bonus = bonus;
+	}
+
+	public float getBonus() {
 		return bonus;
 	}
 	public void setBonus(float bonus) {
@@ -39,7 +43,8 @@ public class DeptManager extends Employee {
 			System.out.println("输入格式不正确！");
 			return 0;
 		}
-		// todo 计算工资：部门经理工资=基本工资+奖金
-		return 0.0f;
+		// finish 计算工资：部门经理工资=基本工资+奖金
+        float salary=basicPay+bonus;
+		return salary;
 	}
 }

@@ -9,14 +9,30 @@ import java.util.Scanner;
 public class CommonEmployee extends Employee {
 	private float workdays;//工作天数
 	private float dailyWages;//日工资
-	
-	public CommonEmployee(){}
-	public CommonEmployee(String employeeId,String employeeName){
-		//todo
+
+	public float getWorkdays() {
+		return workdays;
 	}
-	
-	
-	
+
+	public void setWorkdays(float workdays) {
+		this.workdays = workdays;
+	}
+
+	public float getDailyWages() {
+		return dailyWages;
+	}
+
+	public void setDailyWages(float dailyWages) {
+		this.dailyWages = dailyWages;
+	}
+
+	public CommonEmployee(){}
+
+	public CommonEmployee(String employeeId, String employeeName) {
+		// finish
+		super(employeeId, employeeName);
+	}
+
 	/**
 	 * 重写计算工资
 	 */
@@ -31,17 +47,19 @@ public class CommonEmployee extends Employee {
 			this.setBasicPay(basicPay);
 			System.out.print("请输入工作天数：");
 			workdays=input.nextInt();
-			//todo  设置工作天数
-			
+			//finish  设置工作天数
+			this.setWorkdays(workdays);
 			System.out.print("请输入日工资：");
 			dailyWages=input.nextFloat();
-			//todo  设置日工资
+			//finish  设置日工资
+			this.setDailyWages(dailyWages);
 		}catch(ArithmeticException e){
 			System.out.println("输入格式不正确！");
 			return 0;
 		}		
-		float day=0.0f;// todo 计算工资：普通员工工资=基本工资+日工资*工作天数
-		return day;
+		//float day=0.0f;// finish 计算工资：普通员工工资=基本工资+日工资*工作天数
+		float salary=basicPay+dailyWages*workdays;
+		return salary;
 	}
 
 }
