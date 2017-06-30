@@ -17,6 +17,6 @@
 
 ## 代码发布地址
 
-[*庄Git*](http://git.yangzhizhuang.net/yzz/2017java03)
+[*庄Git*](https://git.yangzhizhuang.net/yzz/2017java03)
 
 [Github](https://github.com/simurayousuke/2017java03)
